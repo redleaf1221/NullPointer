@@ -1,5 +1,6 @@
 package com.redleaf;
 
+import com.redleaf.entities.EntityRegistry;
 import com.redleaf.items.ItemRegistry;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -21,5 +22,7 @@ public class NullPointer implements ModInitializer {
         LOGGER.info("Hello Fabric world!");
         ItemRegistry.register();
         LOGGER.info("Item Registry Complete!");
+        EntityRegistry.register();
+        LOGGER.info("Entity Registry Complete!");
     }
 }
