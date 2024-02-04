@@ -23,6 +23,5 @@ public class NullPointer implements ModInitializer {
         ItemRegistry.register();
         LOGGER.info("Item Registry Complete!");
         EntityRegistry.register();
-        LOGGER.info("Entity Registry Complete!");
     }
 }
