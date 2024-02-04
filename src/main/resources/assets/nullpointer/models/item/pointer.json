@@ -1,0 +1,43 @@
+{
+  "parent": "item/generated",
+  "display": {
+    "ground": {
+      "scale": [
+        2,
+        0.5,
+        0.5
+      ]
+    },
+    "head": {
+      "scale": [
+        4,
+        1,
+        1
+      ]
+    },
+    "thirdperson_righthand": {
+      "scale": [
+        2.20,
+        0.55,
+        0.55
+      ]
+    },
+    "firstperson_righthand": {
+      "scale": [
+        2.72,
+        0.68,
+        0.68
+      ]
+    },
+    "fixed": {
+      "scale": [
+        4,
+        1,
+        1
+      ]
+    }
+  },
+  "textures": {
+    "layer0": "nullpointer:item/pointer"
+  }
+}

@@ -1,0 +1,4 @@
+{
+  "item.nullpointer.pointer": "pointer",
+  "item.nullpointer.null_pointer": "null pointer"
+}
