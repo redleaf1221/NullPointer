@@ -38,7 +38,7 @@ public abstract class PointerToNullPointerMixin extends Entity {
         //make sure there is a player who throw the item
         if (this.getOwner() == null || (!(this.getOwner() instanceof PlayerEntity))) return;
         //give him a null pointer
-        ItemStack stack = new ItemStack(ItemRegistry.ITEM_NULL_POINTER, 1);
+        ItemStack stack = new ItemStack(ItemRegistry.ITEM_NULL_POINTER, this.getStack().getCount());
         ((PlayerEntity) this.getOwner()).giveItemStack(stack);
         //discard
         this.discard();
