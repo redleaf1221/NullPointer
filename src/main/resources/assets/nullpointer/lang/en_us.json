@@ -1,4 +1,6 @@
 {
   "item.nullpointer.pointer": "pointer",
-  "item.nullpointer.null_pointer": "null pointer"
+  "item.nullpointer.null_pointer": "null pointer",
+  "item.nullpointer.pointer.tip1": "Pointed to block at (%d,%d,%d)",
+  "item.nullpointer.pointer.tip2": "Emptied the pointer"
 }

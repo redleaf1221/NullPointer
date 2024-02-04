@@ -1,4 +1,6 @@
 {
   "item.nullpointer.pointer": "指针",
-  "item.nullpointer.null_pointer": "空指针"
+  "item.nullpointer.null_pointer": "空指针",
+  "item.nullpointer.pointer.tip1": "指向了在(%d,%d,%d)的方块",
+  "item.nullpointer.pointer.tip2": "清除了指针"
 }

@@ -1,33 +1,43 @@
 package com.redleaf.items;
 
-import net.minecraft.block.BlockState;
-import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
 public class ItemPointer extends Item {
+    public boolean haveData = false;
+    public BlockPos blockPos = null;
 
     public ItemPointer(Settings settings) {
         super(settings);
     }
 
     @Override
-    public ActionResult useOnBlock(ItemUsageContext context){
+    public ActionResult useOnBlock(ItemUsageContext context) {
         PlayerEntity player = context.getPlayer();
         World world = context.getWorld();
         BlockPos pos = context.getBlockPos();
-        if (!world.isClient){
-            BlockState state = world.getBlockState(pos);
-            BlockEntity entity = world.getBlockEntity(pos);
-
-
-            player.sendMessage(Text.literal(state.toString()));
-            player.sendMessage(Text.literal(entity.toString()));
+        if (player == null) return ActionResult.PASS;
+        if (world.isClient()) return ActionResult.success(true);
+        if (!this.haveData) {
+            player.sendMessage(Text.translatable("item.nullpointer.pointer.tip1", pos.getX(), pos.getY(), pos.getZ()));
+            this.blockPos = pos;
+            this.haveData = true;
+        } else {
+            player.sendMessage(Text.translatable("item.nullpointer.pointer.tip2"));
+            this.blockPos = null;
+            this.haveData = false;
         }
-        return ActionResult.success(world.isClient());
+        return ActionResult.success(false);
+    }
+
+    @Override
+    public boolean hasGlint(ItemStack stack) {
+        return this.haveData;
     }
 }
