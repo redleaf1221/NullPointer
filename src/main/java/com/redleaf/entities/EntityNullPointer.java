@@ -1,36 +1,28 @@
 package com.redleaf.entities;
 
+
+import com.redleaf.items.ItemRegistry;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.Arm;
+import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
+import net.minecraft.item.Item;
 import net.minecraft.world.World;
 
-public class EntityNullPointer extends LivingEntity {
-    public EntityNullPointer(EntityType<? extends LivingEntity> entityType, World world) {
+public class EntityNullPointer extends ThrownItemEntity {
+    public EntityNullPointer(EntityType<? extends ThrownItemEntity> entityType, World world) {
         super(entityType, world);
     }
 
-    @Override
-    public Iterable<ItemStack> getArmorItems() {
-        return null;
+    public EntityNullPointer(World world, LivingEntity owner) {
+        super(EntityRegistry.ENTITY_NULL_POINTER, owner, world); // null will be changed later
+    }
+
+    public EntityNullPointer(World world, double x, double y, double z) {
+        super(EntityRegistry.ENTITY_NULL_POINTER, x, y, z, world); // null will be changed later
     }
 
     @Override
-    public ItemStack getEquippedStack(EquipmentSlot slot) {
-        return null;
+    protected Item getDefaultItem() {
+        return ItemRegistry.ITEM_NULL_POINTER;
     }
-
-    @Override
-    public void equipStack(EquipmentSlot slot, ItemStack stack) {
-
-    }
-
-    @Override
-    public Arm getMainArm() {
-        return null;
-    }
-
-
 }
