@@ -28,7 +28,7 @@ public class ItemPointer extends Item {
         ItemStack stack = context.getStack();
         // 如果玩家在 潜行 时 use 方块
         if (player != null && player.isSneaking()) {
-            // 保存方块位置
+            // 保存 方块位置
             String worldKey = world.getRegistryKey().getValue().toString();
             NbtCompound nbt = stack.getOrCreateNbt();
             nbt.putString("world", worldKey);
@@ -51,9 +51,9 @@ public class ItemPointer extends Item {
             stack.setNbt(nbt);
 
         } else if (player != null) {
-            // 检测是否有方块位置
+            // 检测 是否有 方块位置
             if (stack.getNbt() != null && stack.getNbt().getBoolean("PointTo")) {
-                // 获取方块位置
+                // 获取 方块位置
                 NbtCompound nbt = stack.getNbt();
                 player.sendMessage(Text.of(nbt.toString()));
             }
